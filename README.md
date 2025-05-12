@@ -1,16 +1,13 @@
-# Copilot Bootcamp Monorepo
+# Copilot Bootcamp Starter
 
-This is a monorepo containing a React frontend and a Node.js backend with an in-memory SQLite database.
+A full-stack JavaScript application with React frontend and Node.js backend.
 
 ## Project Structure
 
 ```
-copilot-bootcamp-starter/
-├── packages/
-│   ├── frontend/     # React frontend
-│   └── backend/      # Node.js backend with in-memory database
-├── package.json      # Root package.json for monorepo management
-└── README.md         # This file
+packages/
+  ├── backend/       # Express.js backend with SQLite in-memory database
+  └── frontend/      # React.js frontend
 ```
 
 ## Getting Started
@@ -26,36 +23,51 @@ copilot-bootcamp-starter/
 2. Install dependencies:
 
 ```bash
-npm run install:all
+npm install
 ```
 
-### Running the Application
-
-Start both frontend and backend concurrently:
+3. Start the development servers:
 
 ```bash
 npm start
 ```
 
-Or run them separately:
+This will start both the backend server and the frontend development server.
+
+## Testing
+
+### Backend Tests
+
+To run the backend tests:
 
 ```bash
-# Start frontend only
-npm run start:frontend
-
-# Start backend only
-npm run start:backend
+cd packages/backend
+npm test
 ```
 
-## Frontend
+### Frontend Tests
 
-The React frontend runs on http://localhost:3000 and communicates with the backend API.
+To run the frontend tests:
 
-## Backend
+```bash
+cd packages/frontend
+npm test
+```
 
-The Node.js backend runs on http://localhost:5000 and provides the following endpoints:
+To view test coverage:
 
-- `GET /api/items` - Get all items from the database
-- `POST /api/items` - Add a new item to the database
+```bash
+cd packages/frontend
+npm test -- --coverage
+```
 
-The backend uses an in-memory SQLite database that is initialized with sample data on startup.
+## API Endpoints
+
+- `GET /api/items` - Get all items
+- `POST /api/items` - Create a new item
+
+## Technologies Used
+
+- **Frontend**: React, Axios
+- **Backend**: Express.js, SQLite (in-memory)
+- **Testing**: Jest, React Testing Library, Supertest
