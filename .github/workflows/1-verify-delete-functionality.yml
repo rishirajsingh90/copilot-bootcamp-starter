@@ -1,0 +1,57 @@
+name: Verify Delete Functionality
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  verify-delete-functionality:
+    name: Verify Delete Functionality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for DELETE endpoint in backend
+        id: check-backend
+        run: |
+          if grep -q "app.delete('/api/items/\|app.delete(\"/api/items/\|app.delete('/api/items/:\|app.delete(\"/api/items/:\"" packages/backend/src/app.js; then
+            echo "::set-output name=has_delete_endpoint::true"
+            echo "✅ Backend DELETE endpoint found"
+          else
+            echo "::set-output name=has_delete_endpoint::false"
+            echo "❌ Backend DELETE endpoint not found"
+            exit 1
+          fi
+
+      - name: Check for delete button in frontend
+        id: check-frontend
+        run: |
+          # Check for delete button/icon and click handler in App.js
+          if grep -q "delete\|Delete\|remove\|Remove" packages/frontend/src/App.js && grep -q "onClick\|handleDelete" packages/frontend/src/App.js; then
+            echo "::set-output name=has_delete_button::true"
+            echo "✅ Frontend delete button found"
+          else
+            echo "::set-output name=has_delete_button::false"
+            echo "❌ Frontend delete button not found"
+            exit 1
+          fi
+
+      - name: Success message if both checks pass
+        if: steps.check-backend.outputs.has_delete_endpoint == 'true' && steps.check-frontend.outputs.has_delete_button == 'true'
+        run: |
+          echo "🎉 Congratulations! You've successfully implemented the delete functionality!"
+          echo "Both the backend DELETE endpoint and frontend delete buttons are present."
