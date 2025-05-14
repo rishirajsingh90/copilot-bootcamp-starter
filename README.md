@@ -1,73 +1,34 @@
-# Copilot Bootcamp Starter
+# GitHub Copilot Bootcamp: Item Deletion Tutorial
 
-A full-stack JavaScript application with React frontend and Node.js backend.
+_Learn how to use GitHub Copilot's Agent mode to implement delete functionality in a full-stack application._
 
-## Project Structure
+## Welcome
 
-```
-packages/
-  ├── backend/       # Express.js backend with SQLite in-memory database
-  └── frontend/      # React.js frontend
-```
+- **Who is this for**: Developers at any experience level looking to leverage AI-assisted coding with GitHub Copilot.
+- **What you'll learn**: How to use GitHub Copilot Agent mode to implement features across both frontend and backend code.
+- **What you'll build**: You will implement item deletion functionality in a full-stack JavaScript application.
+- **Prerequisites**:
+  - Basic knowledge of JavaScript, React, and Express
+  - Familiarity with [VS Code](https://code.visualstudio.com/)
+  - GitHub Copilot subscription or trial
+- **How long**: This exercise takes less than 30 minutes to complete.
 
-## Getting Started
+In this exercise, you will:
 
-### Prerequisites
+1. Use GitHub Copilot's Agent mode to implement delete functionality
+2. Learn how Copilot can help you make changes across multiple files in a project
+3. Experience how Copilot can understand both frontend and backend code to create a cohesive solution
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+### How to start this exercise
 
-### Installation
+1. Clone this repository to your local machine
+2. Install the GitHub Copilot extension in VS Code if you haven't already
+3. Run `npm install` at the root of the project to install all dependencies
+4. Start the application with `npm run dev`
+5. Follow the tutorial instructions in the GitHub issue that will be created automatically
 
-1. Clone the repository
-2. Install dependencies:
+The tutorial will guide you through implementing delete functionality using GitHub Copilot's Agent mode.
 
-```bash
-npm install
-```
+---
 
-3. Start the development servers:
-
-```bash
-npm start
-```
-
-This will start both the backend server and the frontend development server.
-
-## Testing
-
-### Backend Tests
-
-To run the backend tests:
-
-```bash
-cd packages/backend
-npm test
-```
-
-### Frontend Tests
-
-To run the frontend tests:
-
-```bash
-cd packages/frontend
-npm test
-```
-
-To view test coverage:
-
-```bash
-cd packages/frontend
-npm test -- --coverage
-```
-
-## API Endpoints
-
-- `GET /api/items` - Get all items
-- `POST /api/items` - Create a new item
-
-## Technologies Used
-
-- **Frontend**: React, Axios
-- **Backend**: Express.js, SQLite (in-memory)
-- **Testing**: Jest, React Testing Library, Supertest
+&copy; 2025 Slalom &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
