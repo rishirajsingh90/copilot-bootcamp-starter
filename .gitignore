@@ -5,6 +5,11 @@ node_modules/
 
 # Testing
 /coverage
+# Coverage reports in packages
+**/coverage/
+**/coverage/**/*
+packages/**/coverage/
+packages/**/coverage/**/*
 
 # Production
 /packages/frontend/build

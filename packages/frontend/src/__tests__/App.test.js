@@ -37,6 +37,25 @@ const server = setupServer(
         created_at: new Date().toISOString(),
       })
     );
+  }),
+
+  // DELETE /api/items/:id handler
+  rest.delete('/api/items/:id', (req, res, ctx) => {
+    const { id } = req.params;
+    
+    // Mock a successful delete for ID 1 or 2
+    if (id === '1' || id === '2') {
+      return res(
+        ctx.status(200),
+        ctx.json({ message: 'Item deleted successfully' })
+      );
+    }
+    
+    // Mock a 404 for non-existent IDs
+    return res(
+      ctx.status(404),
+      ctx.json({ error: 'Item not found' })
+    );
   })
 );
 
@@ -95,6 +114,34 @@ describe('App Component', () => {
     // Check that the new item appears
     await waitFor(() => {
       expect(screen.getByText('New Test Item')).toBeInTheDocument();
+    });
+  });
+
+  test('deletes an item', async () => {
+    const user = userEvent.setup();
+    
+    await act(async () => {
+      render(<App />);
+    });
+    
+    // Wait for items to load
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+    });
+    
+    // Find all delete buttons
+    const deleteButtons = screen.getAllByText('Delete');
+    
+    // Click the first delete button
+    await act(async () => {
+      await user.click(deleteButtons[0]);
+    });
+    
+    // Check that the item has been removed
+    await waitFor(() => {
+      // Since we've removed Test Item 1, we should now only have Test Item 2
+      expect(screen.queryByText('Test Item 1')).not.toBeInTheDocument();
+      expect(screen.getByText('Test Item 2')).toBeInTheDocument();
     });
   });
 
