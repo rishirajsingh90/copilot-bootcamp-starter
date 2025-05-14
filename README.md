@@ -21,7 +21,28 @@ In this exercise, you will:
 
 ### How to start this exercise
 
-1. Clone this repository to your local machine
+Simply copy the exercise to your account, then wait **about 20 seconds** for the setup to complete, then **refresh the page**.
+
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=rishirajsingh90&template_name=copilot-bootcamp-starter&owner=%40me&name=copilot-bootcamp-item-deletion&description=Exercise:+Implement+item+deletion+with+GitHub+Copilot&visibility=public)
+
+<details>
+<summary>Having trouble? 🤷</summary><br/>
+
+When copying the exercise, we recommend the following settings:
+
+- For owner, choose your personal account or an organization to host the repository.
+- We recommend creating a public repository, since private repositories will use Actions minutes.
+   
+If the exercise isn't ready in 20 seconds, please check the Actions tab.
+
+- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- If the page shows a failed job, please submit an issue.
+
+</details>
+
+After copying the repository:
+
+1. Clone the repository to your local machine
 2. Install the GitHub Copilot extension in VS Code if you haven't already
 3. Run `npm install` at the root of the project to install all dependencies
 4. Start the application with `npm run dev`
