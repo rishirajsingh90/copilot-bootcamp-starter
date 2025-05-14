@@ -63,7 +63,7 @@ This document outlines the basic principles and best practices for all code in t
 
 ## Collaboration
 
-- Write code as if the next developer knows where you live
+- Write code with clarity and maintainability in mind for future developers
 - Document non-obvious decisions and design choices
 - Be responsive to code reviews and feedback
 - Ask questions when something isn't clear
